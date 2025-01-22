@@ -1,4 +1,26 @@
-.header {
-    position: sticky;
-    top: 0;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// .header {
+//     position: sticky;
+//     top: 0;
+// }
+.main-container{
+    // background-color: aquamarine;
+    display: flex;
+
+
+
+
+ 
+.sub-container{
+    height: 100%;
+    width: 100%;
+    // background-color: brown;
+
+}
+
 }

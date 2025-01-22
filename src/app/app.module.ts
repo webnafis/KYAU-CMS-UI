@@ -6,6 +6,9 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthAdminInterceptor} from './auth-interceptor/auth-admin.interceptor';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { environment } from '../environments/environment.fire';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import {AuthAdminInterceptor} from './auth-interceptor/auth-admin.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [
     Title,

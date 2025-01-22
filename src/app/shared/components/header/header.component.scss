@@ -1,277 +1,207 @@
-// @import "common/header";
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-
-    .main-container-nav {
-        user-select: none;
-        background-color: #fff;
+.nav{
+    background-color: #fff;
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+padding: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+    .side-bar-icon{
+        margin: 0px 10px;
         display: flex;
         justify-content: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-
-        .nav {
-            width: 1260px;
-
-            .top {
-                padding-top: 0.7rem;
-                padding-bottom: 0.4rem;
-
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-
-                .left {
-                    flex: 0.77;
-
-                    img {
-                        width: 200px;
-                        height: 57.41px;
-                        cursor: pointer;
-                    }
-
-                }
-
-                .right {
-                    flex: 0.55;
-                    display: flex;
-                    // flex-direction: row-reverse;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .cart {
-                        flex: 1;
-                        display: flex;
-                        align-items: flex-end;
-                        justify-content: flex-end;
-                        flex-direction: column-reverse
-                    }
-
-                    /* Cart badge styling */
-                    .cart-badge {
-                        background-color: #CD6727;
-                        color: white;
-                        font-size: 12px;
-                        font-weight: bold;
-                        text-align: center;
-                        height: 20px;
-                        // padding: 5px 8px;
-                        border-radius: 50%;
-                        /* Circular badge */
-                        width: 20px;
-                        /* Ensures it stays round for single digits */
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: pointer;
-                    }
-
-                    .account {
-                        display: flex;
-                        flex: 1;
-                        // cursor: pointer;
-                        // align-items: center;
-                        justify-content: flex-end;
-
-                    }
-                }
-
-                .search-box {
-                    flex: 2;
-                    // margin-right: 10vw;
-
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    max-width: 750px;
-
-                    input {
-                        flex: 1;
-                        padding: 12px;
-                        border: 1px solid #CD6727;
-                        // width: 100%;
-                        // height: 42px;
-                        // font-size: 15px;
-
-                        border-top-left-radius: 0.5rem;
-                        border-bottom-left-radius: 0.5rem;
-                    }
-
-                    input:focus {
-                        // background-color: lightblue; /* Color when focused */
-                        border: 1px solid #CD6727;
-                        outline: none;
-                        /* Remove default focus outline */
-                    }
-
-                    input::placeholder {
-
-                        color: #000;
-                        /* Change text color */
-                        font-family: 'Arial', sans-serif;
-                        /* Change font family */
-                        font-size: 14px;
-                        /* Change font size */
-                        // font-style: italic; /* Optional: Add font style */
-                        opacity: 1;
-                        /* Optional: Adjust visibility if needed */
-                    }
-
-                    .search-btn {
-                        background: #CD6727;
-                        height: 41px;
-                        width: 46px;
-                        padding-left: 11px;
-                        padding-right: 11px;
-
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        border-top-right-radius: 0.5rem;
-                        border-bottom-right-radius: 0.5rem;
-                    }
-                }
+        align-items: center;
+        width: fit-content;
+       
+        .icon-button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+          
+            .icon {
+              width: 20px;
+              height: 2px;
+              background-color:#38487C;
+              position: relative;
+              transition: all 0.3s ease;
+          
+              &::before,
+              &::after {
+                content: '';
+                width: 20px;
+                height: 2px;
+                background-color: #38487C;
+                position: absolute;
+                left: 0;
+                transition: all 0.3s ease;
+              }
+          
+              &::before {
+                top: -8px;
+              }
+          
+              &::after {
+                top: 7px;
+              }
             }
-
-            .bottom {
-                // border-collapse: collapse;
-                border-top: 1px solid #D1D5DB;
-                border-bottom: 1px solid #D1D5DB;
-                // flex-shrink: 0;
-                // overflow-x: auto;
-                display: flex;
-                /* Ensures child elements are arranged in a row */
-                // flex-wrap: wrap; /* Prevents wrapping to the next line */
-                justify-content: flex-start;
-                /* Aligns children to the left */
-                align-items: center;
-                /* Aligns items vertically in the center */
-                // gap: 10px; /* Optional spacing between children */
-
-                .bottom-home {
-
-                    width: 60px;
-                    // padding: 5px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 14px;
-                    height: 41px;
-                    // box-sizing: border-box;
-
-                    text-transform: uppercase;
-                    // width: 20px;
-                    // background-color: #CD6727;
-                    //  flex: 1;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    border-right: 1px solid #D1D5DB;
-
-                }
-
-
-
-                /* Parent container for dropdown */
-                .dropdown {
-                    width: fit-content;
-                    font-size: 14px;
-                    position: relative;
-                    display: inline-block;
-                    cursor: pointer;
-                    border-right: 1px solid #D1D5DB;
-                    padding: 10px 15px;
-                    text-transform: uppercase;
-
-                }
-
-                // .category-name{
-                //   border-right:1px solid #D1D5DB;
-                //   font-size: 14px;
-                // }
-                .align-this {
-                    // max-width: fit-content;
-                    width: fit-content;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 7px;
-
-                }
-
-
-
-
-                /* Icon styling */
-                .icon {
-                    fill: #000;
-                    stroke: #000;
-                    transition: fill 0.3s ease, stroke 0.3s ease;
-                }
-
-                /* Hover effect for dropdown button and icon */
-                .dropdown:hover .dropdown-button,
-                .dropdown:hover .icon,
-                .dropdown:hover {
-                    color: #CD6727;
-                    fill: #CD6727;
-                    stroke: #CD6727;
-                }
-
-                /* Dropdown content container */
-                .dropdown-content {
-                    display: none;
-                    /* Hidden by default */
-                    position: absolute;
-                    background-color: #F9FAFB;
-                    min-width: 200px;
-                    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                    z-index: 1;
-                    // border-radius: 5px;
-                    overflow: hidden;
-                    padding: 15px 7px;
-                }
-
-                /* Dropdown content items */
-                .dropdown-content div {
-                    padding: 10px 10px;
-                    font-size: 14px;
-                    text-align: left;
-                    color: #000;
-                    text-transform: capitalize;
-                    border-bottom: 1px solid #D1D5DB;
-                    transition: transform 0.3s ease;
-                    // transition: background-color 0.3s ease, color 0.3s ease;
-                }
-
-                /* Hover effect for dropdown items */
-                .dropdown-content div:hover {
-                    // background-color: #CD6727;
-                    color: #CD6727;
-                    transform: translateX(15px);
-                }
-
-                /* Show dropdown content on hover */
-                .dropdown:hover .dropdown-content {
-                    display: block;
-                }
-
-                .dropdown-content div:last-child {
-                    // color: red; /* This will apply red color to the last <li> in a <ul> */
-                    border-bottom: none;
-                }
-
+          
+            .icon.cross {
+              background-color: transparent;
+          
+              &::before {
+                transform: rotate(45deg) translate(5px, 5px);
+              }
+          
+              &::after {
+                transform: rotate(-45deg) translate(5px, -5px);
+              }
             }
-
-
-
-        }
-
+          
+            .icon.menu {
+              &::before {
+                transform: rotate(0) translate(0, 0);
+              }
+          
+              &::after {
+                transform: rotate(0) translate(0, 0);
+              }
+            }
+          }
+          
     }
+
+
+
+    /* Parent container styling */
+.search-bar {
+position: relative;
+width: 100%; /* Adjust width as needed */
+max-width: 400px;
+margin: 0px 10px; /* 10px margin for the container */
+
+/* Input field styling */
+input {
+width: 100%;
+height: 30px; /* Height of the input */
+border: 1px solid #38487C;/*k border */
+border-radius: 20px; /* Rounded corners */
+background-color: #fff; /* White background */
+color: #38487C;/*lack text */
+font-size: 14px; /* Adjust font size */
+outline: none; /* Remove outline on focus */
+padding: 0 40px 0 10px; /* Add space for the icon on the right and some left padding */
+box-sizing: border-box; /* Ensure padding doesn't affect width */
+
+&::placeholder {
+color:  #8893b9;/*ght gray placeholder */
+}
+}
+
+/* Search icon styling */
+.search-icon {
+position: absolute;
+top: 50%;
+right: 10px; /* Space from the right edge */
+transform: translateY(-50%);
+width: 25px; /* Width of the icon */
+height: 25px; /* Height of the icon */
+//   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(56, 72, 124)" viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z"></path></svg>');
+//   background-repeat: no-repeat;
+//   background-color:  rgb(56, 72, 124);
+//   background-position: center;
+//   background-size: contain;
+cursor: pointer;
+//   pointer-events: none; /* Prevent icon from being clickable */
+}
+}
+
+
+
+
+    .notification{
+        margin: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        position: relative;
+
+
+      
+          .header-icon-pulse {
+            // display: none;
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            inset-block-start: 3px;
+            inset-inline-end: 3px;
+          }
+
+
+      
+          .pulse {
+            display: none;
+            cursor: pointer;
+            animation: pulse-secondary 2s infinite;
+          }
+          .visibleNotification{
+            display: block;
+          }
+          .pulse.pulse-secondary {
+            box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
+          }
+      
+          .rounded {
+            border-radius: 0.25rem !important;
+          }
+      
+          .bg-secondary {
+            background-color: rgb(255, 0, 0) !important;
+          }
+      
+          @keyframes pulse-secondary {
+            0% {
+              box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+            }
+            70% {
+              box-shadow: 0 0 0 10px rgba(255, 0, 0,0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
+          }
+    }
+
+
+    .full-screen{
+        // align-self: flex-end;
+        margin: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+    }
+
+    .profile{
+        
+        margin: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+
+     
+   }
+
+
+}
+
+.invisible{
+  display: none;
 }
