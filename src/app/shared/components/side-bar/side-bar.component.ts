@@ -8,11 +8,8 @@ import { FirebaseService } from '../../../services/core/firebase.service';
   templateUrl: './side-bar.component.html',
 })
 export class SideBarComponent implements OnInit {
-  public Departments: any[] = [];
-  public DepartmentsObj: {} = {};
-  public Desks: any[] = [];
-  public DesksObj: {} = {};
-  public exm: 'yes' | 'no';
+  public deptLogs: any[] = [];
+
 
   constructor(
     private firebaseService: FirebaseService,
@@ -23,19 +20,26 @@ export class SideBarComponent implements OnInit {
    */
 
   ngOnInit(): void {
-    this.getDataByDept('CSE');
-    this.getAllLogs();
+    this.getAllLogsByDept('CSE');
   }
 
 
   /** DATABASE HANDLING
    * getAllLogs()
+   * getLogsArr()
    * getDataByDept()
    */
 
   private getAllLogs(){
     this.firebaseService.getAllLogs().then(res => {
       console.log('AllLogs', res);
+    })
+  }
+
+  private getAllLogsByDept(dept: string){
+    this.firebaseService.getLogsArrByDept(dept).then(res => {
+      console.log('dept arr', res);
+      this.deptLogs = res;
     })
   }
 

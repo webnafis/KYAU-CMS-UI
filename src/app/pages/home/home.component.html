@@ -1,7 +1,8 @@
 <div class="content-area">
-  @for(product of allProducts; let i = $index; track product.id ){
+  <h3>Department of CSE</h3>
+  @for(dept of depts; let i = $index; track dept ){
   <div>
-      {{product.title}}
+      <button>{{dept}}</button>
   </div>
   }
 </div>

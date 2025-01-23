@@ -15,6 +15,7 @@ export class FirebaseService {
 
     /**FIREBASE
      * getAllLogs()
+     * getLogsArr()
      * getLogsByDept()
      */
 
@@ -24,9 +25,21 @@ export class FirebaseService {
         return snapshot.val();;
     }
 
+    async getLogsArrByDept(dept: string){
+        const snapshot = await get(ref(this.database, `KYAU-CMS/${dept}`));
+        let obj:any = snapshot.val();
+        return (obj ? Object.values(obj) : []);
+    }
+
     async getLogsByDept(dept: string) {
         const snapshot = await get(ref(this.database, `KYAU-CMS/${dept}`))
         return snapshot.val();
+    }
+
+    async getAllDepartments(){
+        const snapshot = await get(ref(this.database, `DEPARTMENTS`))
+        let obj = snapshot.val();
+        return (obj ? Object.values(obj) : []);
     }
 
 }
