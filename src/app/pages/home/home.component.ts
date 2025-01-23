@@ -24,7 +24,7 @@ export class HomeComponent {
   public allProducts: any[];
 
   public onLikeToggle(item: Product){
-    console.log('clicked', item);
+    // console.log('clicked', item);
     this.products.map(m => {
      if(m.id === item.id){
       m.price = m.price+1;
@@ -52,7 +52,7 @@ export class HomeComponent {
     //   m.name = 
     // }
 
-    console.log(product);
+    // console.log(product);
     
     
     return p;
@@ -74,13 +74,13 @@ export class HomeComponent {
 
   ngOnInit(){
     // this.getAllProducts();
-    let tprice:number = this.TotalPrice(this.products);
-    console.log('Page Initialized');
-    console.log('Total Price: ', tprice);
+    // let tprice:number = this.TotalPrice(this.products);
+    // console.log('Page Initialized');
+    // console.log('Total Price: ', tprice);
 
-    let sum = this.mathService.sum(6, 6);
-    console.log(sum);    
-    this.getData();
+    // let sum = this.mathService.sum(6, 6);
+    // console.log(sum);    
+    // this.getData();
   }
 
   ngOnDestroy(){
@@ -94,17 +94,17 @@ export class HomeComponent {
    * getAllProoducts()
    */
 
-  private getData(){
-    this.productService.getAllProducts().subscribe((res:any) => {
-      console.log(res);
-      this.allProducts = res;
+  // private getData(){
+  //   this.productService.getAllProducts().subscribe((res:any) => {
+  //     console.log(res);
+  //     this.allProducts = res;
       
-    },
-    error => {
-      console.log(error);
+  //   },
+  //   error => {
+  //     console.log(error);
       
-    }
-  );
-  }
+  //   }
+  // );
+  // }
 
 }

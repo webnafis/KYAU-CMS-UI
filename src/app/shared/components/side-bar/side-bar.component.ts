@@ -1,27 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { Database, ref, onValue } from '@angular/fire/database';
+import { FirebaseService } from '../../../services/core/firebase.service';
 
 @Component({
   selector: 'app-side-bar',
-  templateUrl: './side-bar.component.html',
+  standalone: true,
   styleUrls: ['./side-bar.component.scss'],
-  standalone:true,
+  templateUrl: './side-bar.component.html',
 })
 export class SideBarComponent implements OnInit {
-  users: any[] = [];
+  public Departments: any[] = [];
+  public DepartmentsObj: {} = {};
+  public Desks: any[] = [];
+  public DesksObj: {} = {};
+  public exm: 'yes' | 'no';
 
-  constructor(private database: Database) {}
+  constructor(
+    private firebaseService: FirebaseService,
+  ) { }
+
+  /**
+   * ngOninit();
+   */
 
   ngOnInit(): void {
-    const desk1Ref = ref(this.database, 'KYAU-CMS');
-    console.log('desk1Ref', desk1Ref);
-    
-    onValue(desk1Ref, (snapshot) => {
-      const data = snapshot.val();
-      console.log('data:', data);
-      this.users = data ? Object.values(data) : [];
-      console.log('users',this.users);
-      
-    });
+    this.getDataByDept('CSE');
+    this.getAllLogs();
+  }
+
+
+  /** DATABASE HANDLING
+   * getAllLogs()
+   * getDataByDept()
+   */
+
+  private getAllLogs(){
+    this.firebaseService.getAllLogs().then(res => {
+      console.log('AllLogs', res);
+    })
+  }
+
+  private getDataByDept(dept: string){
+    this.firebaseService.getLogsByDept('CSE').then(res => {
+      console.log(dept, res);
+    }); 
   }
 }
