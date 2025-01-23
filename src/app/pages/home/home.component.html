@@ -1,8 +1,13 @@
 <div class="content-area">
   <h3>Department of CSE</h3>
-  @for(dept of depts; let i = $index; track dept ){
-  <div>
-      <button>{{dept}}</button>
+
+  <div class="btn-container">
+    @for(dept of depts; let i = $index; track dept ){
+    <button (click)="onDeptClick(dept)">{{dept}}</button>
+    }
   </div>
-  }
+
+  <div>
+    <h1>{{selectedDept}}</h1>
+  </div>
 </div>

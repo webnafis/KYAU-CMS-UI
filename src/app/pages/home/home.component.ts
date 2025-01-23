@@ -16,6 +16,7 @@ import { FirebaseService } from '../../services/core/firebase.service';
 })
 export class HomeComponent {
   public depts: any;
+  public selectedDept: string = 'Not Selectedd';
 
   constructor(
     private firebaseService: FirebaseService,
@@ -26,8 +27,13 @@ export class HomeComponent {
 
   ngOnInit(){
     this.getAllDept();
+    this.getAllLogsByDept(this.selectedDept);
   }
 
+  public onDeptClick(dept: string){
+    this.selectedDept = dept; 
+    this.getAllLogsByDept(dept);   
+  }
 
 
   /**FIREBASE HANDLING
@@ -35,14 +41,21 @@ export class HomeComponent {
    */
 
   private getAllDept(){
-    this.firebaseService.getAllDepartments().then( res => {
+    this.firebaseService.getAllDepartments().then( (res:any) => {
       this.depts = res;
+      this.selectedDept = res[0];
       console.log(res);
     })
   }
 
 
 
+  private getAllLogsByDept(dept: string){
+      this.firebaseService.getLogsArrByDept(dept).then(res => {
+        console.log('res------', res);
+        
+      })
+  }
 
 
 
