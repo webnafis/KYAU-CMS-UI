@@ -1,7 +1,79 @@
+*{  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
 .content-area{
-  // background-color: #F5F6FA;
-  background-color: aqua;
+  background-color: #F5F6FA;
+  // background-color: aqua;
   min-height: 100vh;
   height: 100%;
   width: 100%;
+
+  .btn-dep{
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .btn-dep:hover{
+    color: white;
+    background-color: #38487C;
+  }
+
+  .title-dep{
+    margin: 20px;
+    text-align: center;
+  }
+
+  .desk-container  {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    padding: 40px 0vw;
+
+    user-select: none;
+
+
+    .desk {
+      margin: 0.75vw;
+      flex: 1 1 calc(50% - 25px);
+      max-width: calc(50% - 25px);
+      border-radius: 5px;
+      background-color: red;
+      padding: 20px; /* Adds internal spacing */
+border: 1px solid #000;
+text-align: center;
+
+
+    }
+    .desk.color {
+      background-color: green; /* Applies specific color when the `color` class is active */
+    }
+
+    @media (max-width: 768px) {
+      .desk {
+        flex: 1 1 calc(100% - 25px);
+        /* One card per row */
+        max-width: calc(100% - 25px);
+      }
+    }
+
+
+
+  }
+  
+
+  
 }
+
+
+
+

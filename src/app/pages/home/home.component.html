@@ -1,13 +1,35 @@
 <div class="content-area">
-  <h3>Department of CSE</h3>
-
+  
   <div class="btn-container">
     @for(dept of depts; let i = $index; track dept ){
-    <button (click)="onDeptClick(dept)">{{dept}}</button>
+      <button class="btn-dep" (click)="onDeptClick(dept)">{{dept}}</button>
     }
   </div>
 
+
   <div>
-    <h1>{{selectedDept}}</h1>
+    <h1 class="title-dep">Department of {{selectedDept}}</h1>
   </div>
+  @if(dept_content.length>0){
+
+  <div class="desk-container" >
+    <ng-container *ngFor="let desk of getDeskKeys()" >
+    <div class="desk" [class.color]="getLiveState(desk).status==='Occupied'">
+      
+      <div class="state"><!-- in future state contents will be here ing sha allah--></div>
+      <div class="title">DeskId: {{getLiveState(desk).deskID}}</div>
+      <!-- when came or gone -->
+       @if(getLiveState(desk).status ==='Occupied'){
+        <div >Status: Present</div>
+       }@else {
+        <div >Status: Absent</div>
+       }
+        
+       <div class="description">Last Date: {{getLiveState(desk).dateString}}<br>
+        Last Time: {{getLiveState(desk).time}}<br>
+      </div>
+    </div>
+  </ng-container>
+
+  </div>  }
 </div>

@@ -22,7 +22,7 @@ export class FirebaseService {
 
     async getAllLogs() {
         const snapshot = await get(ref(this.database, `KYAU-CMS`));
-        return snapshot.val();;
+        return snapshot.val();
     }
 
     async getLogsArrByDept(dept: string){
