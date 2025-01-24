@@ -9,13 +9,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
-      {
-        path: 'home',
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
         // data: { animation: 'HomePage' },
+      },
+      {
+        path:'desk-history',
+        loadChildren:()=>import('./desk-history/desk-history.module').then(m => m.DeskHistoryModule),
       },
       {
         path: 'users',

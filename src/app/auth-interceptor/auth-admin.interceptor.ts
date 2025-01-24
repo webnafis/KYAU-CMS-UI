@@ -9,7 +9,8 @@ export class AuthAdminInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const authToken = this.adminService.getAdminToken();
+    // const authToken = this.adminService.getAdminToken();
+    const authToken = null;
     if (authToken) {
       const authRequest = req.clone({
         headers: req.headers.set('administrator', authToken)

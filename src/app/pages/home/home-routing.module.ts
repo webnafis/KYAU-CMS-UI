@@ -6,7 +6,11 @@ const routes: Routes = [
     {
       path: '',
       component: HomeComponent
-    }
+    },
+    {
+      path: ':dept',
+      component: HomeComponent
+    },
 ];
 
 @NgModule({
