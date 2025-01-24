@@ -1,0 +1,19 @@
+.container-history{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid gray;
+}
+
+.day-container{
+    padding: 10px;
+    border: 2px solid greenyellow;
+    gap: 10px;
+
+    .status-container{
+        border: 1px solid gray;
+        background: rgb(202, 186, 218);
+        display: flex;
+        justify-content: space-between;
+    }
+}

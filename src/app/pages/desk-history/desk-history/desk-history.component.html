@@ -1,0 +1,28 @@
+@if(dept_content && dept_content.length > 0){
+<h1 class="desk-title">{{desk ? desk : ""}} History</h1>
+
+<div class="container-history">
+
+    @for(date of createDaysArr(); let i = $index; track date ){
+    <div class="day-container">
+        <h2 class="day-title">Date: {{date}}</h2>
+        @for(infoObj of createObjArrForDay(date); let i = $index; track infoObj ){
+        <div class="status-container">
+            <div class="time">{{infoObj?.time}}</div>
+            @if(infoObj?.status ==='Occupied'){
+
+            <div class="status-card-occupied">{{infoObj?.status}}</div>
+
+            }
+            @if(infoObj.status ==='Vacant'){
+
+            <div class="status-card-vacant">{{infoObj.status}}</div>
+            }
+        </div>
+        }
+    </div>
+
+    <br><br>
+    }
+</div>
+}
