@@ -31,7 +31,6 @@
 - 
 
 # Powered By
-- Empyraze IT
-- https://empyrazeit.com/
-- empyrazeit@gmail.com
+- Computer Science & Engineering
+- Khwaja Yunus Ali University
 # Angular-17-Base-Ui
