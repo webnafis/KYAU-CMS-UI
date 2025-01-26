@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class HomeComponent {
   public depts: any;
-  public selectedDept: string = null;
+  public selectedDept: string = 'CSE';
   // public state: boolean = false;
   public dept_content: any[] = [];
   public time: number = 0;
