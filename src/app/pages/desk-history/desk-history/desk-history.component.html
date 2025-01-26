@@ -1,22 +1,25 @@
-@if(dept_content && dept_content.length > 0){
-<h1 class="desk-title">{{desk ? desk : ""}} History</h1>
+@if(dept_content && dept_content.length > 0 ){
+
 
 <div class="container-history">
+    <button [routerLink]="'/'+department" class="btn-back">Back</button>
+    <div class="nav-crumb">
+        <h1 class="desk-title">History: {{desk ? desk : ""}}</h1>
+    </div>
 
     @for(date of createDaysArr(); let i = $index; track date ){
     <div class="day-container">
-        <h2 class="day-title">Date: {{date}}</h2>
+        <div class="flex">
+            <h2 class="day-title">Date: {{date}}</h2>
+            <h2 class="total-time">Total Time: {{(totalTimePerDay(dept_content, desk, date)/60).toFixed(2)}} Hours</h2>
+        </div>
         @for(infoObj of createObjArrForDay(date); let i = $index; track infoObj ){
-        <div class="status-container">
-            <div class="time">{{infoObj?.time}}</div>
-            @if(infoObj?.status ==='Occupied'){
-
-            <div class="status-card-occupied">{{infoObj?.status}}</div>
-
-            }
-            @if(infoObj.status ==='Vacant'){
-
-            <div class="status-card-vacant">{{infoObj.status}}</div>
+        <div class="card">
+            @if (infoObj && infoObj.time ) {
+            <div [class]="infoObj?.status ==='Occupied' ? 'status-container active' : 'status-container'">
+                <div class="time">Time: {{infoObj?.time}}</div>
+                <div [class]="infoObj?.status ==='Occupied' ? 'active' : 'vacant'">Status: {{infoObj?.status}}</div>
+            </div>
             }
         </div>
         }

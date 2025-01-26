@@ -24,6 +24,11 @@
     background-color: #38487C;
   }
 
+  .active{
+    color: white;
+    background-color: #38487C;
+  }
+
   .title-dep{
     margin: 20px;
     text-align: center;
@@ -47,15 +52,39 @@
       flex: 1 1 calc(50% - 25px);
       max-width: calc(50% - 25px);
       border-radius: 5px;
-      background-color: red;
+      background-color: rgb(250, 227, 227);
       padding: 20px; /* Adds internal spacing */
-border: 1px solid #000;
+border: 1px solid red;
 text-align: center;
+display: flex;
+flex-direction: column;
+align-items:flex-start;
 
+.name{
+  font-size: 24px;
+  font-weight: 500;
+  span{
+    width: fit-content;
+    border: 1px solid rgb(250, 227, 227);
+    background-color: red;
+    border-radius: 50px;
+  }
+}
+.st-a{
+  color: red;
+  font-weight: 600;
+  text-transform: capitalize;
+}
 
+.st-p{
+  color: green;
+  font-weight: 600;
+  text-transform: capitalize;
+}
     }
     .desk.color {
-      background-color: green; /* Applies specific color when the `color` class is active */
+      background-color: rgb(232, 250, 227); /* Applies specific color when the `color` class is active */
+    border: 1px solid green;
     }
 
     @media (max-width: 768px) {

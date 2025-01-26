@@ -16,7 +16,7 @@ export class DeskHistoryComponent {
   private readonly route = inject(Router);
   public dept_content: any[] = [];
   public DaysArr: string[] = [];
-
+ 
 
 
   constructor(
@@ -31,7 +31,6 @@ export class DeskHistoryComponent {
     this.router.paramMap.subscribe((m) => {
       this.desk = m.get('desk');
       this.department = m.get('department');
-
     });
 
     this.getAllLogsByDept(this.department);
@@ -39,10 +38,17 @@ export class DeskHistoryComponent {
     // console.log(this.dept_content);
 
   }
+  public getDateKeys(desk: string) {
+    return Object.keys(this.dept_content[0][desk]);
+  }
 
-
-
-
+  public totalTimePerDay(dept_content:any[], desk:string, date:string){
+    
+    let lastDateObj: Object = this.dept_content[0][desk][date];
+    return this.manipulateDataService.calculateOccupiedDurationPerDayInMinutes(lastDateObj);
+    
+    
+  }
 
 
   private getAllLogsByDept(dept: string) {

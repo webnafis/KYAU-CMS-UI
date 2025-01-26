@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getLoggedInAdminData();
+    // this.getLoggedInAdminData();
     // console.log(this.categories);
     
 
