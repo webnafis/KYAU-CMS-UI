@@ -16,15 +16,7 @@ const routes: Routes = [
         path:'desk-history',
         loadChildren:()=>import('./desk-history/desk-history.module').then(m => m.DeskHistoryModule),
       },
-      {
-        path: 'users',
-        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
-        // data: { animation: 'AboutPage' },
-      },
-      {
-        path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-      },
+
     ]
   }
 ];

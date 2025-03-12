@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Meta} from '@angular/platform-browser';
 import {registerLocaleData} from '@angular/common';
 import localeBn from '@angular/common/locales/bn';
-import {AdminService} from './services/common/admin.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +11,11 @@ import {AdminService} from './services/common/admin.service';
 export class AppComponent {
 
   constructor(
-    private adminService: AdminService,
     private meta: Meta,
   ) {
     this.googleNoIndex();
     registerLocaleData(localeBn, 'bn');
-    this.adminService.autoAdminLoggedIn();
+
   }
 
 
